@@ -1,3 +1,4 @@
+package Characters;
 
 
 /**
@@ -9,11 +10,11 @@ public class NPC {
     int[] position;
     int[] healthMana; 
     int[] Stats;
-
+    
     public NPC(int[] newPosition, int[] newHealthMana, int[] newStats){
-        position = newPosition;
-        healthMana = newHealthMana;
-        Stats = newStats;
+        this.position = newPosition;
+        this.healthMana = newHealthMana;
+        this.Stats = newStats;
     }
 
     public void roaming() {}

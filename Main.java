@@ -1,4 +1,4 @@
-
+import Characters.*;
 
 public class Main{
 
