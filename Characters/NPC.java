@@ -10,6 +10,7 @@ public class NPC {
     int[] position;
     int[] healthMana; 
     int[] Stats;
+    boolean isInteractable = true;
     
     public NPC(int[] newPosition, int[] newHealthMana, int[] newStats){
         this.position = newPosition;
@@ -18,6 +19,11 @@ public class NPC {
     }
 
     public void roaming() {}
+
+    // Switch para cada diálogo
+    public String interact() {
+        return "return string";
+    }
 
     public void getsHurt(int damage) {
         healthMana[0] -= damage;

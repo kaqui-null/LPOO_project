@@ -8,4 +8,8 @@ public class Enemies extends NPC{
         super(newPosition, newHealthMana, newStats);
     }
 
+    public int attack(){
+        return 0;
+    }
+
 }
