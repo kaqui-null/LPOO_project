@@ -1,0 +1,23 @@
+classes: Mago branco, Mago negro, Paladino, Cavaleiro, Bardo, Monge; 3 num time -> 20 times diferentes
+equipamento: Corpo: Mago branco e mago negro;
+                    Paladino e Cavaleiro;
+                    Bardo e Monge;
+             Mão direita: Mago branco e Mago negro;
+                          Paladino e Cavaleiro;
+                          Monge -> Nada;
+                          Bardo;
+             Mão esquerda:Mago branco -> anéis;
+                          Mago negro -> grimórios;
+                          Paladino -> coisa religiosa;
+                          Cavaleiro -> escudo;
+itens: item cura, item recuperar mana, itens chave;
+
+história: os heróis foram contratados para derrotar o dragão que domina a dungeon;
+
+
+
+
+
+
+
+
