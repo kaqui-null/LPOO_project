@@ -18,6 +18,9 @@ public class BattleMenu extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
+	final private int ATAQUE = 3;
+	private int menuChoice;
+
 	/**
 	 * Create the frame.
 	 */
@@ -61,6 +64,7 @@ public class BattleMenu extends JFrame {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "Você atacou o inimigo");
+				sendBattleMenuChoiceId(ATAQUE);
 			}
 		});
 		btnNewButton_3.setBounds(236, 193, 89, 23);
@@ -72,4 +76,23 @@ public class BattleMenu extends JFrame {
 		contentPane.add(lblNewLabel);
 	}
 
+	/**
+	 * Send signal id
+	 * id 0 - fugir
+	 * id 1 - itens
+	 * id 2 - defesa
+	 * id 3 - ataque
+	 */
+	
+	public void sendBattleMenuChoiceId(int id) {
+		menuChoice = id;
+	}
+
+
+	/**
+	 * Getters and Setters
+	 */
+	public int getMenuChoiceId() {
+		return menuChoice;
+	}
 }

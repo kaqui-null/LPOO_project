@@ -1,21 +1,16 @@
 import Characters.*;
+import Graphics.GraphicsRunnable;
 import Menu.*;
 import java.awt.EventQueue;
 
 public class Main{
-
+	static int battleMenuChoice;
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BattleMenu frame = new BattleMenu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		GraphicsRunnable graphicsRunnable = new GraphicsRunnable();
+        EventQueue.invokeLater(graphicsRunnable);
+
 	}
+	
 }
 
 
