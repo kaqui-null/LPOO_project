@@ -5,12 +5,12 @@ import java.awt.EventQueue;
 
 public class Main{
 	static int battleMenuChoice;
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 		GraphicsRunnable graphicsRunnable = new GraphicsRunnable();
-        EventQueue.invokeLater(graphicsRunnable);
-
+		EventQueue.invokeLater(graphicsRunnable);
+		battleMenuChoice = graphicsRunnable.getBattleMenuChoice();
 	}
-	
+
 }
 
 
