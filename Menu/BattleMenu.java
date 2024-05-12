@@ -65,6 +65,7 @@ public class BattleMenu extends JFrame {
 		JButton btnNewButton_3 = new JButton("Ataque");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				sendBattleMenuChoiceId(ATAQUE);
 				JOptionPane.showMessageDialog(null, "Você atacou o inimigo");
 			}
 		});
