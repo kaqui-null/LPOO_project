@@ -1,7 +1,5 @@
 package Menu;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -19,6 +17,10 @@ public class BattleMenu extends JFrame {
 	private JPanel contentPane;
 
 	final private int ATAQUE = 3;
+	final private int DEFESA = 2;
+	final private int ITENS = 1;
+	final private int FUGIR = 0;
+
 	private int menuChoice;
 
 	/**
@@ -32,7 +34,7 @@ public class BattleMenu extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JButton btnNewButton = new JButton("Fugir");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -41,7 +43,7 @@ public class BattleMenu extends JFrame {
 		});
 		btnNewButton.setBounds(335, 227, 89, 23);
 		contentPane.add(btnNewButton);
-		
+
 		JButton btnNewButton_1 = new JButton("Defesa");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -50,7 +52,7 @@ public class BattleMenu extends JFrame {
 		});
 		btnNewButton_1.setBounds(335, 193, 89, 23);
 		contentPane.add(btnNewButton_1);
-		
+
 		JButton btnNewButton_2 = new JButton("Itens");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -59,35 +61,26 @@ public class BattleMenu extends JFrame {
 		});
 		btnNewButton_2.setBounds(236, 227, 89, 23);
 		contentPane.add(btnNewButton_2);
-		
+
 		JButton btnNewButton_3 = new JButton("Ataque");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Você atacou o inimigo");
 				sendBattleMenuChoiceId(ATAQUE);
+				JOptionPane.showMessageDialog(null, "Você atacou o inimigo");
 			}
 		});
 		btnNewButton_3.setBounds(236, 193, 89, 23);
 		contentPane.add(btnNewButton_3);
-		
+
 		JLabel lblNewLabel = new JLabel("Sua próxima ação?");
 		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
 		lblNewLabel.setBounds(10, 197, 216, 53);
 		contentPane.add(lblNewLabel);
 	}
 
-	/**
-	 * Send signal id
-	 * id 0 - fugir
-	 * id 1 - itens
-	 * id 2 - defesa
-	 * id 3 - ataque
-	 */
-	
 	public void sendBattleMenuChoiceId(int id) {
 		menuChoice = id;
 	}
-
 
 	/**
 	 * Getters and Setters

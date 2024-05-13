@@ -4,16 +4,15 @@ package Characters;
 /**
  * postion = [x, y]; a z paramater can be added later if we want depth
  * healthMana = [health, mana]
- * Stats = [strenght, inteligence, defense, luck]
+ * Stats = [strenght, inteligence, defense, luck, agility]
  */
 public class NPC {
-    private int[] position;
-    private int[] healthMana; 
-    private int[] Stats;
+    private int[] healthMana = new int[2]; 
+    private int[] Stats = new int[5];
     private boolean isInteractable = true;
+    private boolean isAlive = true;
     
-    public NPC(int[] newPosition, int[] newHealthMana, int[] newStats){
-        this.position = newPosition;
+    public NPC(int[] newHealthMana, int[] newStats){
         this.healthMana = newHealthMana;
         this.Stats = newStats;
     }
@@ -24,26 +23,26 @@ public class NPC {
     public String interact() {
         return "return string";
     }
-
-    public void getsHurt(int damage) {
-        healthMana[0] -= damage;
+    
+    public int attack(int defense) {
+        return getStrenght() - defense;
     }
 
-    // getters setters
-    // position = {x,y}
-    public int[] getPosition() {
-        return position;
+    public int getsHurt(int health, int damage) {
+    	if (health - damage >= 0) {
+    		return health - damage;
+    	}
+        return 0;
     }
-    public int getX(){
-        return position[0];
-    }
-    public int getY(){
-        return position[1];
-    }
+
+    
 
     // heathMana = {health, mana}
     public int[] getHealthMana() {
         return healthMana;
+    }
+    public void setHealth(int newHealth) {
+    	healthMana[0] = newHealth;
     }
     public int getHealth() {
         return healthMana[0];
@@ -68,8 +67,15 @@ public class NPC {
     public int getLuck() {
         return Stats[3];
     }
+    public int getAgility() {
+    	return Stats[4];
+    }
 
     public boolean getInteractableStatus(){
         return isInteractable;
+    }
+    
+    public boolean isAlive() {
+    	return isAlive;
     }
 }

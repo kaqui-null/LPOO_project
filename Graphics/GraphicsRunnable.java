@@ -10,7 +10,6 @@ public class GraphicsRunnable implements Runnable {
         try {
             BattleMenu frame = new BattleMenu();
             frame.setVisible(true);
-
             battleMenuChoice = frame.getMenuChoiceId();
         } catch (Exception e) {
             e.printStackTrace();

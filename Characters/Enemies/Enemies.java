@@ -4,12 +4,9 @@ import Characters.NPC;
 
 public class Enemies extends NPC{
     
-    public Enemies(int[] newPosition, int[] newHealthMana, int[] newStats){
-        super(newPosition, newHealthMana, newStats);
+    public Enemies(int[] newHealthMana, int[] newStats){
+        super(newHealthMana, newStats);
     }
-
-    public int attack(){
-        return 0;
-    }
-
+    
+    // add spawn chances, weaknesses and drops(items and xp)
 }
