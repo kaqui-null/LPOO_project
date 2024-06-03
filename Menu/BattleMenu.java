@@ -1,5 +1,7 @@
 package Menu;
 
+import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -15,18 +17,30 @@ public class BattleMenu extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private MenuInventario inventario;
 
-	final private int ATAQUE = 3;
-	final private int DEFESA = 2;
-	final private int ITENS = 1;
-	final private int FUGIR = 0;
-
-	private int menuChoice;
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					BattleMenu frame = new BattleMenu();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	/**
 	 * Create the frame.
 	 */
 	public BattleMenu() {
+		inventario = new MenuInventario(this);
+		
+		inventario.adicionarItem("Poção de Cura",  2);
+		inventario.adicionarItem("Poção de Mana", 3);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -34,58 +48,59 @@ public class BattleMenu extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
-		JButton btnNewButton = new JButton("Fugir");
-		btnNewButton.addActionListener(new ActionListener() {
+		
+		JButton btnFugir = new JButton("Fugir");
+		btnFugir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Você fugiu da Luta");
+				fugir();
 			}
 		});
-		btnNewButton.setBounds(335, 227, 89, 23);
-		contentPane.add(btnNewButton);
-
-		JButton btnNewButton_1 = new JButton("Defesa");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btnFugir.setBounds(335, 227, 89, 23);
+		contentPane.add(btnFugir);
+		
+		JButton btnDefesa = new JButton("Defesa");
+		btnDefesa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Você defendeu o ataque inimigo");
+				defender();
 			}
 		});
-		btnNewButton_1.setBounds(335, 193, 89, 23);
-		contentPane.add(btnNewButton_1);
-
-		JButton btnNewButton_2 = new JButton("Itens");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		btnDefesa.setBounds(335, 193, 89, 23);
+		contentPane.add(btnDefesa);
+		
+		JButton btnItens = new JButton("Itens");
+		btnItens.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Mostrar Inventário");
+				setVisible(false);
+				inventario.setVisible(true);
+				inventario.atualizarInventario();
 			}
 		});
-		btnNewButton_2.setBounds(236, 227, 89, 23);
-		contentPane.add(btnNewButton_2);
-
-		JButton btnNewButton_3 = new JButton("Ataque");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		btnItens.setBounds(236, 227, 89, 23);
+		contentPane.add(btnItens);
+		
+		JButton btnAtaque = new JButton("Ataque");
+		btnAtaque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sendBattleMenuChoiceId(ATAQUE);
-				JOptionPane.showMessageDialog(null, "Você atacou o inimigo");
+				atacar();
 			}
 		});
-		btnNewButton_3.setBounds(236, 193, 89, 23);
-		contentPane.add(btnNewButton_3);
-
+		btnAtaque.setBounds(236, 193, 89, 23);
+		contentPane.add(btnAtaque);
+		
 		JLabel lblNewLabel = new JLabel("Sua próxima ação?");
 		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
 		lblNewLabel.setBounds(10, 197, 216, 53);
 		contentPane.add(lblNewLabel);
 	}
-
-	public void sendBattleMenuChoiceId(int id) {
-		menuChoice = id;
+	
+	private void fugir() {
+		JOptionPane.showMessageDialog(null, "Você fugiu da Luta");
+	}
+	private void defender() {
+		JOptionPane.showMessageDialog(null, "Você fugiu da Luta");
+	}
+	private void atacar() {
+		JOptionPane.showMessageDialog(null, "Você fugiu da Luta");
 	}
 
-	/**
-	 * Getters and Setters
-	 */
-	public int getMenuChoiceId() {
-		return menuChoice;
-	}
 }
