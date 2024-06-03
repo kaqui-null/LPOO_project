@@ -1,7 +1,8 @@
 import Characters.*;
 import Characters.Enemies.*;
-import Graphics.GraphicsRunnable;
+import Characters.Players.Player;
 import Menu.*;
+import Mapas.*;
 import java.awt.EventQueue;
 import java.util.Scanner;
 
@@ -17,8 +18,25 @@ public class Main{
 	public static void main(String[] args) {
 		Player player = new Player(playerHealthMana, playerStats);
 		Enemies enemy = new Enemies(enemyHealthMana, enemyStats);
+		Scanner scr = new Scanner(System.in);
+		Mapa mapa = new Mapa();
 		
-		battle(player, enemy);
+		mapa.draw();
+		mapa.setNewMap(mapa.replacePlayerSprite(player.getPosition(), player.getTerminalSprite()));
+		while (true) {
+			char key = scr.next().charAt(0);
+			player.walk(key);
+			mapa.setNewMap(mapa.replacePlayerSprite(player.getPosition(), player.getTerminalSprite()));
+			
+			mapa.draw();
+			
+			if (key == 'x') {
+				break;
+			}
+		}
+		scr.close();
+		
+		//battle(player, enemy);
 		
 	}
 	

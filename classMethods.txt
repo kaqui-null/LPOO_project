@@ -1,43 +1,43 @@
 Menu -
-  returnChoiceIndex() -> int index;
+  public returnChoiceIndex() -> int index;
   
   BattleMenu - 
-    BattleMenu() -> constructor;
-    sendBattleMenuChoiceId() -> int menuChoiceId;
-    getMenuChoiceId() <- newMenuChoiceId;
+    public BattleMenu() -> constructor;
+    public sendBattleMenuChoiceId() -> int menuChoiceId;
+    public getMenuChoiceId() <- newMenuChoiceId;
 
   Resto dos menus: nada planejado ainda;
 
 Mapas - 
   Mapa -
-    blackListTile() -> int[] blacklistedPosition;
+    public blackListTile() -> int[] blacklistedPosition;
 
 Graphics -
   GraphicsRunnable extends Runnable - 
     @Override run();
-    getBattleMenuChoice() -> int battleMenuChoice;
+    public getBattleMenuChoice() -> int battleMenuChoice;
 
 NPC - //sujeito a mudança de nome
   NPC() -> constructor;
 
-  roaming() -> TODO; //sujeito a deleção
-  interact() -> String returnString;
-  attack() -> int damageDealt;
-  getsHurt() -> int damageTaken;
+  public roaming() -> TODO; //sujeito a deleção
+  public interact() -> String returnString;
+  public attack() -> int damageDealt;
+  public getsHurt() -> int damageTaken;
   
 
-  Getters and Setters para {
-  int[] healthMana;
-  int[] Stats;
-  boolean isInteractable;
-  boolean isAlive;
+  public Getters and Setters para {
+    int[] healthMana;
+    int[] Stats;
+    boolean isInteractable;
+    boolean isAlive;
   }
 
   Player - 
-    defend() -> damageTaken;
+    public defend() -> damageTaken;
 
-    Getters and Setters para {
-    int[] position;
+    public Getters and Setters para {
+      int[] position;
     }
   
   Enemies - sem novos métodos;
