@@ -19,7 +19,7 @@ public class InventoryMenu extends JFrame {
 	private JPanel mostrarItens;
 	private BattleMenu battleMenu;
 	
-	public MenuInventario(BattleMenu battleMenu) {
+	public InventoryMenu(BattleMenu battleMenu) {
 		this.battleMenu = battleMenu;
 		itens = new HashMap<>();
 		initialize();
@@ -99,17 +99,4 @@ public class InventoryMenu extends JFrame {
         mostrarItens.revalidate();
         mostrarItens.repaint();
     }	
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MenuInventario frame = new MenuInventario(null);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+}

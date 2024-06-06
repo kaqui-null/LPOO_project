@@ -17,26 +17,11 @@ public class BattleMenu extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private MenuInventario inventario;
+	private InventoryMenu inventario;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BattleMenu frame = new BattleMenu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public BattleMenu() {
-		inventario = new MenuInventario(this);
+		inventario = new InventoryMenu(this);
 		
 		inventario.adicionarItem("Poção de Cura",  2);
 		inventario.adicionarItem("Poção de Mana", 3);
@@ -71,8 +56,7 @@ public class BattleMenu extends JFrame {
 		btnItens.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				inventario.setVisible(true);
-				inventario.atualizarInventario();
+				showInventory();
 			}
 		});
 		btnItens.setBounds(236, 227, 89, 23);
@@ -101,6 +85,11 @@ public class BattleMenu extends JFrame {
 	}
 	private void atacar() {
 		JOptionPane.showMessageDialog(null, "Você fugiu da Luta");
+	}
+	
+	private void showInventory() {
+		inventario.setVisible(true);
+		inventario.atualizarInventario();
 	}
 
 }

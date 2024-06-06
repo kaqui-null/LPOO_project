@@ -18,9 +18,18 @@ public class Main{
 	public static void main(String[] args) {
 		Player player = new Player(playerHealthMana, playerStats);
 		Enemies enemy = new Enemies(enemyHealthMana, enemyStats);
-		Scanner scr = new Scanner(System.in);
 		Mapa mapa = new Mapa();
 		
+		
+		
+		//mapa(mapa, player);
+		//battle(player, enemy);
+		
+	}
+	
+	public static void mapa(Mapa mapa, Player player) { 
+		Scanner scr = new Scanner(System.in);
+
 		mapa.draw();
 		mapa.setNewMap(mapa.replacePlayerSprite(player.getPosition(), player.getTerminalSprite()));
 		while (true) {
@@ -35,9 +44,6 @@ public class Main{
 			}
 		}
 		scr.close();
-		
-		//battle(player, enemy);
-		
 	}
 	
 	// get new enemy through rng table of the place
