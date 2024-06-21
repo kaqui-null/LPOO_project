@@ -18,8 +18,17 @@ public class BattleMenu extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private InventoryMenu inventario;
+	private int currChoice;
 
 	
+	public int getCurrChoice() {
+		return currChoice;
+	}
+
+	public void setCurrChoice(int currChoice) {
+		this.currChoice = currChoice;
+	}
+
 	public BattleMenu() {
 		inventario = new InventoryMenu(this);
 		
@@ -33,6 +42,7 @@ public class BattleMenu extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setVisible(true);
 		
 		JButton btnFugir = new JButton("Fugir");
 		btnFugir.addActionListener(new ActionListener() {
@@ -84,7 +94,7 @@ public class BattleMenu extends JFrame {
 		JOptionPane.showMessageDialog(null, "Você fugiu da Luta");
 	}
 	private void atacar() {
-		JOptionPane.showMessageDialog(null, "Você fugiu da Luta");
+		this.setCurrChoice(1);
 	}
 	
 	private void showInventory() {

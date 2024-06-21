@@ -2,7 +2,7 @@ import Characters.*;
 import Characters.Enemies.*;
 import Characters.Players.Player;
 import Menu.*;
-import Mapas.*;
+import Mapas.Mapa;
 import java.awt.EventQueue;
 import java.util.Scanner;
 
@@ -19,7 +19,11 @@ public class Main{
 		Player player = new Player(playerHealthMana, playerStats);
 		Enemies enemy = new Enemies(enemyHealthMana, enemyStats);
 		Mapa mapa = new Mapa();
+		BattleMenu battleMenu = new BattleMenu();
 		
+		while (true) {
+			System.out.println(battleMenu.getCurrChoice());
+		}
 		
 		
 		//mapa(mapa, player);
