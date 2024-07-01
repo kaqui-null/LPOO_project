@@ -1,5 +1,6 @@
 package Characters;
 
+import Actions.Dialog;
 
 /**
  * postion = [x, y]; a z paramater can be added later if we want depth
@@ -10,8 +11,21 @@ public class NPC {
     private int[] healthMana = new int[2]; 
     private int[] Stats = new int[5];
     private boolean isInteractable = true;
+    public boolean isInteractable() {
+        return isInteractable;
+    }
+
+    public void setInteractable(boolean isInteractable) {
+        this.isInteractable = isInteractable;
+    }
+
     private boolean isAlive = true;
+    private Dialog dialog = new Dialog();
     
+    public Dialog getDialog() {
+        return dialog;
+    }
+
     public NPC(int[] newHealthMana, int[] newStats){
         this.healthMana = newHealthMana;
         this.Stats = newStats;

@@ -1,11 +1,13 @@
 package Characters.Players;
 
 import Characters.NPC;
+import Characters.Itens.Itens;
 
 public class Player extends NPC {
 	
 	private char terminalSprite = '@';
 	private int xp = 0;
+	private Itens[] inventoryList;
 	
 	private static int posX = 0;
 	private static int posY = 0;
@@ -94,4 +96,19 @@ public class Player extends NPC {
 	public int getXP() {
 		return xp;
 	}
+	public Itens[] getInventoryList() {
+		return inventoryList;
+	}
+	public void setInventoryList(Itens[] inventoryList) {
+		this.inventoryList = inventoryList;
+	}
+	public void addToInventory(Itens item) {
+		int oldArraySize = this.inventoryList.length;
+		Itens[] newArray = new Itens[oldArraySize + 1];
+		for (int i = 0; i < oldArraySize; i++){
+			newArray[i] = this.inventoryList[i];
+		}
+		newArray[oldArraySize + 1] = item;
+	}
+
 }

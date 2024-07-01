@@ -6,6 +6,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Characters.Itens.Itens;
+import Characters.Players.Party;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
@@ -15,17 +19,18 @@ public class InventoryMenu extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private HashMap<String, Integer> itens;
+	private HashMap<Itens, Integer> itens;
 	private JPanel mostrarItens;
-	private BattleMenu battleMenu;
+	private Menu menu;
+
 	
-	public InventoryMenu(BattleMenu battleMenu) {
-		this.battleMenu = battleMenu;
+	public InventoryMenu(Menu menu) {
+		this.menu =menu;
 		itens = new HashMap<>();
 		initialize();
 	}
 	
-	public void adicionarItem (String nome, int quantidade) {
+	public void adicionarItem (Itens nome, int quantidade) {
 		if (itens.containsKey(nome)) {
 			itens.put(nome, itens.get(nome) + quantidade);
 		} else {
@@ -34,7 +39,7 @@ public class InventoryMenu extends JFrame {
 		atualizarInventario();
 	}
 	
-	public void removerItem(String nome, int quantidade) {
+	public void removerItem(Itens nome, int quantidade) {
 		if (itens.containsKey(nome)) {
 			int novaQuantidade = itens.get(nome) - quantidade;
 			if (novaQuantidade > 0) {
@@ -50,7 +55,7 @@ public class InventoryMenu extends JFrame {
 		return itens.getOrDefault(nome, 0);
 	}
 	
-	public HashMap<String, Integer> getItens() {
+	public HashMap<Itens, Integer> getItens() {
 		return itens;
 	}
 	
@@ -76,7 +81,7 @@ public class InventoryMenu extends JFrame {
         StringBuilder inventarioTexto = new StringBuilder();
         mostrarItens.removeAll();
         int y = 0;
-        for (String item : itens.keySet()) {
+        for (Itens item : itens.keySet()) {
             int quantidade = itens.get(item);
 
             JLabel lblItem = new JLabel(item + ": " + quantidade);
@@ -88,8 +93,9 @@ public class InventoryMenu extends JFrame {
             btnEscolher.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     removerItem(item, 1);
+					if (item.getName() == "Poção de Cura")
                     setVisible(false);
-                    battleMenu.setVisible(true);
+                 	menu.setVisible(true);
                 }
             });
             mostrarItens.add(btnEscolher);

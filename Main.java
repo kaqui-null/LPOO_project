@@ -19,7 +19,7 @@ public class Main{
 		Player player = new Player(playerHealthMana, playerStats);
 		Enemies enemy = new Enemies(enemyHealthMana, enemyStats);
 		Mapa mapa = new Mapa();
-		BattleMenu battleMenu = new BattleMenu();
+		BattleMenu battleMenu = new BattleMenu(enemy, null);
 		
 		while (true) {
 			System.out.println(battleMenu.getCurrChoice());

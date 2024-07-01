@@ -4,5 +4,8 @@ public class Bard extends Player {
     
     public Bard(int[] healthMana, int[] Stats) {
         super(healthMana, Stats);
+
+        // lvl up moveset
+        
     }
 }
