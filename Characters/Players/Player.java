@@ -5,7 +5,6 @@ import Characters.Itens.Itens;
 
 public class Player extends NPC {
 	
-	private char terminalSprite = '@';
 	private int xp = 0;
 	private Itens[] inventoryList;
 	
@@ -27,19 +26,19 @@ public class Player extends NPC {
     	//TODO: make collision for edges
     	switch (key) {
     	case 'w':
-    		setX(posX - 1);
+    		setX(posX - 50);
 			setPosition(getX(), getY()); //needed to update pos array
     		break;
     	case 's':
-    		setX(posX + 1);
+    		setX(posX + 50);
 			setPosition(getX(), getY());
     		break;
     	case 'a':
-    		setY(posY - 1);
+    		setY(posY - 50);
 			setPosition(getX(), getY());
     		break;
     	case 'd':
-    		setY(posY + 1);
+    		setY(posY + 50);
 			setPosition(getX(), getY());
     		break;
     	default:
@@ -90,9 +89,6 @@ public class Player extends NPC {
     public int getY(){
         return posY;
     }
-	public char getTerminalSprite() {
-		return terminalSprite;
-	}
 	public int getXP() {
 		return xp;
 	}
