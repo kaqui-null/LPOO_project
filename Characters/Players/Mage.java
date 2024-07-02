@@ -8,8 +8,8 @@ public class Mage extends Player {
     }
     
     @Override
-    protected void addAbility(int level) {
-    	switch (level) {
+    protected void addAbility(String ability) {
+    	switch (getCurrLevel()) {
     	case 1:
     		newAbility("Bola de Fogo");
     		break;

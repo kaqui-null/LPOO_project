@@ -7,8 +7,8 @@ public class Bard extends Player {
     }
     
     @Override
-    protected void addAbility(int level) {
-    	switch (level) {
+    protected void addAbility(String ability) {
+    	switch (getCurrLevel()) {
     	case 1:
     		newAbility("");
     		break;

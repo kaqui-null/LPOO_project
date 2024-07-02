@@ -27,7 +27,7 @@ public class Main{
 			System.out.println(battleMenu.getCurrChoice());
 		}
 	}
-	/*
+/*
 	public static void mapa(Mapa mapa, Player player) { 
 		Scanner scr = new Scanner(System.in);
 		
@@ -46,7 +46,7 @@ public class Main{
 		}
 		scr.close();
 	}
-	
+*/
 	// get new enemy through rng table of the place
 	public static void battle(Player player, Enemies enemy) {
 		Scanner scanner = new Scanner(System.in);
@@ -80,7 +80,7 @@ public class Main{
 		
 		scanner.close();
 	}
-	*/
+
 }
 
 

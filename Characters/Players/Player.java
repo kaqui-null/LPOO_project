@@ -3,7 +3,7 @@ package Characters.Players;
 import Characters.NPC;
 import Characters.Itens.Itens;
 
-public abstract class Player extends NPC {
+public class Player extends NPC {
 	
 	private int xp = 0;
 	private Itens[] inventoryList;
@@ -68,15 +68,24 @@ public abstract class Player extends NPC {
 			return 0;
 		}
 	}
+
+    public String getTerminalSprite() {
+        return "DefaultSprite";
+    }
+
 	
 	private void addLevelUp() {
 		int playerLevel = getCurrLevel ();
-		addAbility(playerLevel);
+		addAbility(String.valueOf(playerLevel));
 	}
 	
-	protected abstract void addAbility (int level);
-    // getters setters
-    // position = {x,y}
+	protected void addAbility(String ability) {
+		String[] newArray = new String[abilities.length + 1];
+		System.arraycopy(abilities, 0, newArray, 0, abilities.length);
+		newArray[abilities.length] = ability;
+		abilities = newArray;
+	}
+	
     public void setPosition(int[] newPosition) {
     	position = newPosition;
     }
