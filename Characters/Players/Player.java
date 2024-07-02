@@ -3,7 +3,7 @@ package Characters.Players;
 import Characters.NPC;
 import Characters.Itens.Itens;
 
-public class Player extends NPC {
+public abstract class Player extends NPC {
 	
 	private int xp = 0;
 	private Itens[] inventoryList;
@@ -11,6 +11,8 @@ public class Player extends NPC {
 	private static int posX = 0;
 	private static int posY = 0;
 	private static int[] position = {posX, posY};
+	private String[] abilities = new String [0];
+	
     public Player(int[] healthMana, int[] Stats) {
         super(healthMana, Stats);
     }
@@ -45,9 +47,12 @@ public class Player extends NPC {
     		break;
     	}
     }
+    
 	public void getXp(int battleXp) {
 		xp += battleXp;
+		addLevelUp();
 	}
+	
 	public int getCurrLevel() {
 		if (xp >= 10000) {
 			return 5;
@@ -63,6 +68,13 @@ public class Player extends NPC {
 			return 0;
 		}
 	}
+	
+	private void addLevelUp() {
+		int playerLevel = getCurrLevel ();
+		addAbility(playerLevel);
+	}
+	
+	protected abstract void addAbility (int level);
     // getters setters
     // position = {x,y}
     public void setPosition(int[] newPosition) {
@@ -105,6 +117,20 @@ public class Player extends NPC {
 			newArray[i] = this.inventoryList[i];
 		}
 		newArray[oldArraySize + 1] = item;
+		this.inventoryList = newArray;
 	}
-
+	
+    public String[] getAbilities() {
+        return abilities;
+    }
+    
+    protected void newAbility (String ability) {
+    	int oldArraySize = this.abilities.length;
+    	String[] newArray = new String[oldArraySize + 1];
+    	for (int i = 0; i < oldArraySize; i++) {
+    		newArray[i] = this.abilities[i];
+    	}
+    	newArray[oldArraySize] = ability;
+    	this.abilities = newArray;
+    }
 }

@@ -3,6 +3,31 @@ package Characters.Players;
 public class Monk extends Player{
 
     public Monk(int[] healthMana, int[] Stats) {
-        super(healthMana, Stats);
+        super(new int[] {0, 0}, new int[] {0,0,0});
+    }
+    
+    @Override
+    protected void addAbility(int level) {
+    	switch (level) {
+    	case 1:
+    		newAbility("");
+    		break;
+    		
+    	case 2:
+    		newAbility("");
+    		break;
+    		
+    	case 3:
+    		newAbility("");
+    		break;
+    		
+    	case 4:
+    		newAbility("");
+    		break;
+    		
+    	case 5:
+    		newAbility("");
+    		break;
+    	}
     }
 }
