@@ -22,11 +22,17 @@ public class Main{
 		Player player = new Mage(playerHealthMana, playerStats);
 		Enemies enemy = new Enemies(enemyHealthMana, enemyStats);
 		BattleMenu battleMenu = new BattleMenu(enemy, null);
+<<<<<<< HEAD
 		
 		while (true) {
 			System.out.println(battleMenu.getCurrChoice());
 		}
+=======
+		Mapa mapa = new Mapa(player);
+		
+>>>>>>> branch 'main' of https://github.com/kaqui-null/LPOO_project.git
 	}
+<<<<<<< HEAD
 /*
 	public static void mapa(Mapa mapa, Player player) { 
 		Scanner scr = new Scanner(System.in);
@@ -81,6 +87,8 @@ public class Main{
 		scanner.close();
 	}
 
+=======
+>>>>>>> branch 'main' of https://github.com/kaqui-null/LPOO_project.git
 }
 
 

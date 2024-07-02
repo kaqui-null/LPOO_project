@@ -2,13 +2,22 @@ package Mapas;
 
 
 import javax.swing.JFrame;
+<<<<<<< HEAD
+=======
+import Characters.Players.Player;
+import java.awt.Color;
+import java.awt.Graphics;
+>>>>>>> branch 'main' of https://github.com/kaqui-null/LPOO_project.git
 
+<<<<<<< HEAD
 import Characters.Players.Player;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Scanner;
 
+=======
+>>>>>>> branch 'main' of https://github.com/kaqui-null/LPOO_project.git
 public class Mapa extends JFrame {
 	Player player;
 	PlayerMov mov;
@@ -28,4 +37,8 @@ public class Mapa extends JFrame {
 		g.setColor(Color.green); // can walk
 		g.fillRect(50, 50, 600, 400);
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> branch 'main' of https://github.com/kaqui-null/LPOO_project.git
