@@ -1,5 +1,8 @@
 import Characters.*;
 import Characters.Enemies.*;
+import Characters.Players.Mage;
+import Characters.Players.Knight;
+import Characters.Players.Paladin;
 import Characters.Players.Player;
 import Menu.*;
 import Mapas.Mapa;
@@ -16,7 +19,7 @@ public class Main{
 	static int[] enemyStats = {5, 3, 3, 5, 6};
 	
 	public static void main(String[] args) {
-		Player player = new Player(playerHealthMana, playerStats);
+		Player player = new Mage(playerHealthMana, playerStats);
 		Enemies enemy = new Enemies(enemyHealthMana, enemyStats);
 		Mapa mapa = new Mapa();
 		BattleMenu battleMenu = new BattleMenu(enemy, null);
