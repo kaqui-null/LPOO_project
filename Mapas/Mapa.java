@@ -1,47 +1,31 @@
 package Mapas;
 
-import java.util.Arrays;
 
+import javax.swing.JFrame;
 
-// to be replaced
-public class Mapa {
-    
-	private char[][] Map = new char[20][20];
-	private char[][] newMap = Map;
-	private char fillChar = '.';
-	
-	public Mapa() {
-		for (int i = 0; i < Map.length; i++){
-			Arrays.fill(Map[i], fillChar);
-		}
+import Characters.Players.Player;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.Scanner;
+
+public class Mapa extends JFrame {
+	Player player;
+	PlayerMov mov;
+
+	public Mapa(Player player) {
+		this.player = player;
+		mov = new PlayerMov(player, 55, 55);
+		setSize(700,500);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		add(mov);
+		setVisible(true);
 	}
-	
-    public int[] blacklistTile() {
-        int[] re = {0, 0};
-        return re;
-    }
-    
-    public void draw() {
-    	for (int i = 0; i < newMap.length; i++) {
-    		for (int j = 0; j < newMap[0].length; j++) {
-    			System.out.print(newMap[j][i]);
-    		}
-    		System.out.println();
-    	}
-    }
-    
-    public char[][] replacePlayerSprite(int[] position, char sprite){
-		newMap = Map;
-    	newMap[position[1]][position[0]] = sprite;
-    	return newMap;
-    }
-    
-    public void setNewMap(char[][] map){
-    	newMap = map;
-    }
-    
-    public char[][] getMap() {
-    	return Map;
-    }
-    
+	public void paint(Graphics g){
+		g.setColor(Color.red); //can't walk
+		g.fillRect(0, 0, 700, 500);
+		g.setColor(Color.green); // can walk
+		g.fillRect(50, 50, 600, 400);
+	}
 }

@@ -21,22 +21,16 @@ public class Main{
 	public static void main(String[] args) {
 		Player player = new Mage(playerHealthMana, playerStats);
 		Enemies enemy = new Enemies(enemyHealthMana, enemyStats);
-		Mapa mapa = new Mapa();
 		BattleMenu battleMenu = new BattleMenu(enemy, null);
 		
 		while (true) {
 			System.out.println(battleMenu.getCurrChoice());
 		}
-		
-		
-		//mapa(mapa, player);
-		//battle(player, enemy);
-		
 	}
-	
+	/*
 	public static void mapa(Mapa mapa, Player player) { 
 		Scanner scr = new Scanner(System.in);
-
+		
 		mapa.draw();
 		mapa.setNewMap(mapa.replacePlayerSprite(player.getPosition(), player.getTerminalSprite()));
 		while (true) {
@@ -86,7 +80,7 @@ public class Main{
 		
 		scanner.close();
 	}
-
+	*/
 }
 
 
