@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -39,7 +38,7 @@ public class PlayerMov extends JPanel implements ActionListener, KeyListener{
         Timer timer = new Timer(30, this);
         timer.start();
         this.player = player;
-        setX(x);
+        setX(x);                                    
         setY(y);
         player.setX(x);
         player.setY(y);
