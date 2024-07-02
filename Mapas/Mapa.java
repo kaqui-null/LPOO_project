@@ -2,12 +2,9 @@ package Mapas;
 
 
 import javax.swing.JFrame;
-
 import Characters.Players.Player;
-
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.Scanner;
 
 public class Mapa extends JFrame {
 	Player player;
