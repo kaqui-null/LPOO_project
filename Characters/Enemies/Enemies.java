@@ -2,6 +2,7 @@ package Characters.Enemies;
 
 import Characters.NPC;
 import java.util.Map;
+import java.util.HashMap;
 
 public class Enemies extends NPC{
 	private double chanceSpawn;
@@ -9,12 +10,20 @@ public class Enemies extends NPC{
 	private Map<String, Integer> drops;
 	private int xpDrop;
     
-    public Enemies(int[] newHealthMana, int[] newStats){
+    public Enemies(int[] newHealthMana, int[] newStats, double chanceSpawn, Map<String, Double> fraqueza, Map<String, Integer> drops, int xpDrop){
         super(newHealthMana, newStats);
         this.chanceSpawn = chanceSpawn;
         this.fraqueza = fraqueza;
         this.drops = drops;
         this.xpDrop = xpDrop;
+    }
+    
+    public Enemies(int[] newHealthMana, int[] newStats) {
+        super(newHealthMana, newStats);
+        this.chanceSpawn = 0.0;
+        this.fraqueza = new HashMap<>();
+        this.drops = new HashMap<>();
+        this.xpDrop = 0;
     }
     
     public double getChanceSpawn() {
