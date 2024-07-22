@@ -24,6 +24,13 @@ public class Main{
 		BattleMenu battleMenu = new BattleMenu(enemy, null);
 		Mapa mapa = new Mapa(player);
 		
+		if (startBattle()) {
+			battleMenu.startBattle();
+		}
+	}
+	
+	private static boolean startBattle() {
+		return true;
 	}
 }
 

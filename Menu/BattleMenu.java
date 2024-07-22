@@ -23,8 +23,9 @@ public class BattleMenu extends Menu {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private InventoryMenu inventario;
-	private int currChoice; /// 
-	private boolean battleRunning = true;
+	private int currChoice;
+	private boolean battleRunning;
+	private Enemies enemies;
 
 	
 	public int getCurrChoice() {
@@ -100,9 +101,15 @@ public class BattleMenu extends Menu {
 			}
 		}
 	}
-	
+
+    public void startBattle() {
+        setVisible(true);
+    }
+    
 	private void fugir() {
 		JOptionPane.showMessageDialog(null, "Você fugiu da Luta");
+		battleRunning = false;
+		setVisible(false);
 	}
 	private void defender() {
 		JOptionPane.showMessageDialog(null, "Você fugiu da Luta");
@@ -114,6 +121,14 @@ public class BattleMenu extends Menu {
 	private void showInventory() {
 		inventario.setVisible(true);
 		inventario.atualizarInventario();
+	}
+	
+	private void checkBattleStatus() {
+		if (enemies.getHealth() <= 0) {
+			battleRunning = false;
+			setVisible(false);
+			JOptionPane.showMessageDialog(null, "A batalha acabou");
+		}
 	}
 
 }
