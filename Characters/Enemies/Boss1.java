@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Boss1 extends Boss {
-	private static final int[] health_mana = {500, 120};
-	private static final int[] stats = {18, 15, 18, 10, 12};
-	private static final double chance_spawn = 0.1;
-	private static final Map<String, Double> fraqueza = new HashMap<>();
-	private static final Map<String, Integer> drops = new HashMap<>();
-	private static final int xp_drop = 1000;
+	private static int[] health_mana = {500, 120};
+	private static int[] stats = {18, 15, 18, 10, 12};
+	private static double chance_spawn = 0.1;
+	private static Map<String, Double> fraqueza = new HashMap<>();
+	private static Map<String, Integer> drops = new HashMap<>();
+	private static int xp_drop = 1000;
 	
 	static {
 		fraqueza.put("Ataque Espiritual", 1.5);
