@@ -8,6 +8,9 @@ import Menu.*;
 import Mapas.Mapa;
 import java.awt.EventQueue;
 import java.util.Scanner;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import gui.MapaGUI;
 
 public class Main{
 	static int battleMenuChoice;
@@ -20,22 +23,25 @@ public class Main{
 	
 	public static void main(String[] args) {
 		Player player = new Mage(playerHealthMana, playerStats);
-		Enemies enemy = new Enemies(enemyHealthMana, enemyStats);
+		Enemies enemy = new Inimigo1();
 		BattleMenu battleMenu = new BattleMenu(enemy, null);
 		Mapa mapa = new Mapa(player);
-		
-		if (startBattle()) {
-			battleMenu.startBattle();
-		}
-	}
-	
-	private static boolean startBattle() {
-		return true;
+
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                JFrame frame = new JFrame("My Game");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(800, 600);
+                frame.setResizable(false);
+                frame.setLocationRelativeTo(null);
+
+                MapaGUI mapaGUI = new MapaGUI(player);
+                frame.add(mapaGUI);
+                frame.pack();
+
+                frame.setVisible(true);
+            }
+        });
 	}
 }
-
-
-
-
-
-

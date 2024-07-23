@@ -2,6 +2,8 @@ package Characters.Enemies;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.awt.Graphics;
+import java.awt.Color;
 
 public class Inimigo1 extends Enemies {
 	private static int[] health_mana = {50, 10};
@@ -26,5 +28,10 @@ public class Inimigo1 extends Enemies {
     @Override
     public void roaming() {
     	
+    }
+    
+    public void draw(Graphics g) {
+    	g.setColor(Color.BLUE);
+    	g.fillRect(300, 300, 50, 50);
     }
 }

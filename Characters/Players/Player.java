@@ -1,5 +1,8 @@
 package Characters.Players;
 
+import java.awt.Graphics;
+import java.awt.Color;
+
 import Characters.NPC;
 import Characters.Itens.Itens;
 
@@ -141,5 +144,10 @@ public class Player extends NPC {
     	}
     	newArray[oldArraySize] = ability;
     	this.abilities = newArray;
+    }
+    
+    public void draw (Graphics g) {
+    	g.setColor(Color.RED);
+    	g.fillRect(posX,posY, 50, 50);
     }
 }
