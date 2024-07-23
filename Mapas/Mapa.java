@@ -12,7 +12,7 @@ public class Mapa extends JFrame {
 
 	public Mapa(Player player) {
 		this.player = player;
-		mov = new PlayerMov(player, 55, 55);
+		mov = new PlayerMov(player, 1, 1);
 		setSize(700,500);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
