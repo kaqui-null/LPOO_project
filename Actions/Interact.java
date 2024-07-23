@@ -1,7 +1,6 @@
 package Actions;
 
 import Characters.NPC;
-import Characters.Enemies.Boss;
 import Characters.Itens.Itens;
 import Characters.Players.Party;
 import Characters.Players.Player;
@@ -17,9 +16,6 @@ public class Interact<Target>{
         }
         else if (target instanceof NPC) {
             dialog = ((NPC)target).getDialog();
-        }
-        else if (target instanceof Boss) {
-            BattleMenu battle = new BattleMenu((Boss) target, party);
         }
     }
 

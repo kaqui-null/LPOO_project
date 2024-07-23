@@ -15,6 +15,8 @@ public class MapaGUI extends JPanel {
 	private Player player;
 	private List<Enemies> enemies;
 	private boolean inBattle;
+	private int cameraX = 0;
+	private int cameraY = 0;
 	
 	public MapaGUI(Player player) {
         this.setPreferredSize(new java.awt.Dimension(800, 600));
@@ -31,6 +33,7 @@ public class MapaGUI extends JPanel {
             public void keyPressed(KeyEvent e) {
                 char key = e.getKeyChar();
                 player.walk(key);
+                updateCameraPosition(); 
                 repaint();
 
                 if (checkCollisionWithEnemy()) {
@@ -39,6 +42,19 @@ public class MapaGUI extends JPanel {
             }
         });
     }
+	
+	private void updateCameraPosition() {
+        int playerX = player.getX();
+        int playerY = player.getY();
+
+        cameraX = playerX - getWidth() / 2;
+        cameraY = playerY - getHeight() / 2;
+
+	    cameraX = Math.max(cameraX, 0);
+	    cameraY = Math.max(cameraY, 0);
+	    cameraX = Math.min(cameraX, 800 - getWidth());
+	    cameraY = Math.min(cameraY, 600 - getHeight());
+	}
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -46,7 +62,8 @@ public class MapaGUI extends JPanel {
 
         g.setColor(Color.GREEN);
         g.fillRect(0, 0, getWidth(), getHeight());
-
+        g.translate(-cameraX, -cameraY);
+        
         player.draw(g);
 
         if (!inBattle) {
@@ -56,16 +73,18 @@ public class MapaGUI extends JPanel {
                 }
             }
         }
+        g.translate(cameraX, cameraY);
     }
 
     private boolean checkCollisionWithEnemy() {
         for (Enemies enemy : enemies) {
-            if (player.getX() == 300 && player.getY() == 300) {
+            if (player.collidesWith(enemy)) {
                 return true;
             }
         }
         return false;
     }
+    
     private void startBattle() {
         inBattle = true;
         System.out.println("Batalha iniciada!");

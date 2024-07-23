@@ -20,9 +20,14 @@ public class Inimigo1 extends Enemies {
 		
 		drops.put("Poção de Cura", 1);
 	}
+
+    private int posX;
+    private int posY;
     
 	public Inimigo1() {
-		super(health_mana, stats, chance_spawn, fraqueza, drops, xp_drop);
+		super(health_mana, stats, chance_spawn, fraqueza, drops, xp_drop, 300, 300);
+        this.posX = 300;
+        this.posY = 300;
 	}
 	
     @Override

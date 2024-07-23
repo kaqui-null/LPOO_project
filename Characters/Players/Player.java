@@ -3,6 +3,7 @@ package Characters.Players;
 import java.awt.Graphics;
 import java.awt.Color;
 
+import Characters.Enemies.Enemies;
 import Characters.NPC;
 import Characters.Itens.Itens;
 
@@ -31,25 +32,41 @@ public class Player extends NPC {
     	//TODO: make collision for edges
     	switch (key) {
     	case 'w':
-    		setX(posX - 50);
-			setPosition(getX(), getY()); //needed to update pos array
-    		break;
-    	case 's':
-    		setX(posX + 50);
-			setPosition(getX(), getY());
-    		break;
-    	case 'a':
     		setY(posY - 50);
 			setPosition(getX(), getY());
     		break;
-    	case 'd':
+    	case 's':
     		setY(posY + 50);
+			setPosition(getX(), getY());
+    		break;
+    	case 'a':
+    		setX(posX - 50);
+			setPosition(getX(), getY());
+    		break;
+    	case 'd':
+    		setX(posX + 50);
 			setPosition(getX(), getY());
     		break;
     	default:
     		break;
     	}
     }
+    
+    public void attack(Enemies enemy) {
+    	enemy.takeDamage(10);
+    }
+
+    public boolean collidesWith(Enemies enemy) {
+        return (this.posX < enemy.getX() + 50 &&
+                this.posX + 50 > enemy.getX() &&
+                this.posY < enemy.getY() + 50 &&
+                this.posY + 50 > enemy.getY());
+    }
+
+    public int getX() { return posX; }
+    public int getY() { return posY; }
+    public void setX(int x) { this.posX = x; }
+    public void setY(int y) { this.posY = y; }
     
 	public void getXp(int battleXp) {
 		xp += battleXp;
@@ -76,7 +93,6 @@ public class Player extends NPC {
         return '@';
     }
 
-	
 	private void addLevelUp() {
 		int playerLevel = getCurrLevel ();
 		addAbility(String.valueOf(playerLevel));
@@ -101,21 +117,10 @@ public class Player extends NPC {
     public int[] getPosition() {
         return position;
     }
-    public void setX(int x) {
-    	posX = x;
-    }
-    public void setY(int y) {
-    	posY = y;
-    }
-    public int getX(){
-        return posX;
-    }
-    public int getY(){
-        return posY;
-    }
 	public int getXP() {
 		return xp;
 	}
+	
 	public Itens[] getInventoryList() {
 		return inventoryList;
 	}

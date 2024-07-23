@@ -9,13 +9,17 @@ public class Enemies extends NPC{
 	private Map<String, Double> fraqueza;
 	private Map<String, Integer> drops;
 	private int xpDrop;
+    private int posX;
+    private int posY;
     
-    public Enemies(int[] newHealthMana, int[] newStats, double chanceSpawn, Map<String, Double> fraqueza, Map<String, Integer> drops, int xpDrop){
+    public Enemies(int[] newHealthMana, int[] newStats, double chanceSpawn, Map<String, Double> fraqueza, Map<String, Integer> drops, int xpDrop, int x, int y){
         super(newHealthMana, newStats);
         this.chanceSpawn = chanceSpawn;
         this.fraqueza = fraqueza;
         this.drops = drops;
         this.xpDrop = xpDrop;
+        this.posX = x;
+        this.posY = y;
     }
     
     public Enemies(int[] newHealthMana, int[] newStats) {
@@ -77,4 +81,13 @@ public class Enemies extends NPC{
     	int damage = getStrenght() - defense;
     	return damage > 0 ? damage : 0;
     }
+    
+    public void takeDamage(int damage) {
+
+    }
+    
+    public int getX() { return posX; }
+    public int getY() { return posY; }
+    public void setX(int x) { this.posX = x; }
+    public void setY(int y) { this.posY = y; }
 }

@@ -1,3 +1,4 @@
+/*
 package Characters.Enemies;
 
 import java.util.Map;
@@ -39,3 +40,4 @@ public class Boss extends Enemies {
     }
     
 }
+*/

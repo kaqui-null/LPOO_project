@@ -1,3 +1,4 @@
+/*
 package Characters.Enemies;
 
 import java.util.HashMap;
@@ -44,3 +45,4 @@ public class Boss1 extends Boss {
     }
   
 }
+*/
