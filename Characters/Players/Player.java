@@ -69,8 +69,8 @@ public class Player extends NPC {
 		}
 	}
 
-    public String getTerminalSprite() {
-        return "DefaultSprite";
+    public char getTerminalSprite() {
+        return '@';
     }
 
 	
